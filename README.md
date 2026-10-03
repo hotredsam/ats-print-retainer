@@ -8,7 +8,9 @@ This is a hobby and research project about software, mesh processing, and 3D pri
 
 ## What is here
 
-- `pipeline/`: Python scripts (trimesh and numpy) that load a scan, clean the mesh, and generate a shell model around it.
+- `pipeline/clean.py`: loads a mesh, keeps the largest piece, fills small holes, and saves it (trimesh and numpy).
+- `pipeline/make_sample.py`: writes the synthetic test arch in `samples/` (pure Python, no real scan).
+- Planned, as open tasks: generating a shell model around the cleaned arch, and print orientation notes.
 - `samples/`: synthetic test meshes only. Never commit real patient or personal scans.
 - `docs/`: notes on scanning, mesh cleanup, and printer and material settings for research prints.
 
@@ -16,6 +18,7 @@ This is a hobby and research project about software, mesh processing, and 3D pri
 
 ```
 python3 -m pip install -r requirements.txt
+python3 pipeline/make_sample.py samples/synthetic_arch.stl   # already committed; this rebuilds it
 python3 pipeline/clean.py samples/synthetic_arch.stl out/clean.stl
 ```
 
